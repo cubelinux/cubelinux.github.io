@@ -1,0 +1,22 @@
+{
+  "name": "cubelinux",
+  "short_name": "cubelinux",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfcfd",
+  "theme_color": "#2d9bd2",
+  "icons": [
+    {
+      "src": "https://pub-eb590fbfc3074776ad4199c13b93d722.r2.dev/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://pub-eb590fbfc3074776ad4199c13b93d722.r2.dev/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

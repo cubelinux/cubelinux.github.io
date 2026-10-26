@@ -1,20 +1,32 @@
 <main class="page-shell">
   <header class="topbar">
-    <a class="brand" href="/" aria-label="CubeLinux home">
-      @if (brand.primaryLogoUrl) {
-        <img class="brand-logo" [src]="brand.primaryLogoUrl" alt="CubeLinux" />
-      } @else {
-        <span class="brand-name">CubeLinux</span>
-      }
+    <a class="brand" href="/" aria-label="cubelinux home">
+      <img
+        class="brand-logo"
+        [src]="isDark() ? brand.darkLogoUrl : brand.primaryLogoUrl"
+        alt="cubelinux"
+      />
     </a>
-    <a class="top-link" href="https://github.com/cubelinux">GitHub <span aria-hidden="true">↗</span></a>
+    <nav class="top-actions" aria-label="Site options">
+      <button
+        class="theme-toggle"
+        type="button"
+        [attr.aria-label]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+        [attr.aria-pressed]="isDark()"
+        (click)="toggleTheme()"
+      >
+        <span class="theme-icon" aria-hidden="true">{{ isDark() ? '☀' : '☾' }}</span>
+        <span>{{ isDark() ? 'Dark' : 'Light' }}</span>
+      </button>
+      <a class="top-link" href="https://github.com/cubelinux">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
   </header>
 
   <section class="hero" aria-labelledby="hero-title">
     <p class="eyebrow"><span class="status-dot"></span> Upcoming Linux distribution · built in the open</p>
     <h1 id="hero-title">Secure and isolated.<br /><span>In the making.</span></h1>
     <p class="intro">
-      CubeLinux is an upcoming Linux distribution being developed in public.
+      cubelinux is an upcoming Linux distribution being developed in public.
       Today, the project is its GitHub repositories: the system image and desktop
       tools are taking shape before a first release.
     </p>
@@ -24,26 +36,65 @@
     </div>
   </section>
 
-  <section class="feature-grid" aria-label="What is in development">
-    <article class="feature-card">
-      <span class="card-number">01 / SYSTEM</span>
-      <h2>Fedora bootc image</h2>
-      <p>The base system and KDE desktop are being assembled as an image-based Linux system.</p>
-    </article>
-    <article class="feature-card">
-      <span class="card-number">02 / VIRTUAL SHELL</span>
-      <h2>Isolated workspace</h2>
-      <p>VShell is being developed to provide a persistent Fedora environment from the desktop.</p>
-    </article>
-    <article class="feature-card">
-      <span class="card-number">03 / UPDATES</span>
-      <h2>System updater</h2>
-      <p>A dedicated updater is part of the project, alongside the image and desktop experience.</p>
-    </article>
+  <section class="project-section" aria-labelledby="projects-title">
+    <div class="section-heading">
+      <p class="section-kicker">BUILT IN PUBLIC</p>
+      <h2 id="projects-title">One distro, <span>three repositories</span></h2>
+      <p>cubelinux is taking shape across a system image and two companion desktop projects.</p>
+    </div>
+
+    <div class="project-grid">
+      <a class="project-card project-system" href="https://github.com/cubelinux/cubelinux" target="_blank" rel="noreferrer">
+        <span class="card-number">01 / SYSTEM</span>
+        <h3>Fedora bootc image</h3>
+        <p>The main repository builds a customized Fedora 44 bootc image with KDE Plasma and the cubelinux desktop setup.</p>
+        <span class="card-link">Explore the system repo <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="project-card project-updater" href="https://github.com/cubelinux/cubelinux-updater" target="_blank" rel="noreferrer">
+        <span class="card-number">02 / UPDATES</span>
+        <h3>Bootc Updater</h3>
+        <p>A KDE app in development for checking for updates, staging downloads, and applying an update after a confirmed restart.</p>
+        <span class="card-link">Explore the updater repo <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a class="project-card project-vshell" href="https://github.com/cubelinux/cubelinux-vshell" target="_blank" rel="noreferrer">
+        <span class="card-number">03 / VIRTUAL SHELL</span>
+        <h3>VShell</h3>
+        <p>A KDE setup app for a persistent Fedora LXC environment. Its container setup and host integration are still being developed.</p>
+        <span class="card-link">Explore the VShell repo <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="approach-section" aria-labelledby="approach-title">
+    <div class="approach-copy">
+      <p class="section-kicker">THE APPROACH</p>
+      <h2 id="approach-title">A desktop <span>built as a system</span></h2>
+      <p>
+        cubelinux starts with Fedora bootc, a KDE Plasma desktop, and a system
+        image assembled from a versioned package manifest. The companion
+        projects explore image updates and an isolated Fedora workspace.
+      </p>
+    </div>
+    <ul class="approach-list">
+      <li><span class="approach-index">A</span><span><strong>Fedora bootc</strong><small>Image-based system foundation</small></span></li>
+      <li><span class="approach-index approach-index-pink">B</span><span><strong>KDE Plasma</strong><small>Desktop environment and setup flow</small></span></li>
+      <li><span class="approach-index approach-index-peach">C</span><span><strong>LXC + VShell</strong><small>Persistent, unprivileged Fedora environment</small></span></li>
+    </ul>
+  </section>
+
+  <section class="status-panel" aria-labelledby="status-title">
+    <div>
+      <p class="section-kicker">CURRENT STAGE</p>
+      <h2 id="status-title">Early development</h2>
+      <p>There is no ISO or install image to download yet. For now, follow the source repositories as the system and its tools come together.</p>
+    </div>
+    <a class="button button-secondary" href="https://github.com/cubelinux">Visit cubelinux on GitHub <span aria-hidden="true">↗</span></a>
   </section>
 
   <footer class="footer">
-    <span>© {{ year }} CubeLinux Project</span>
+    <span>© {{ year }} cubelinux Project</span>
     <span>Early development · No install images published</span>
   </footer>
 </main>
