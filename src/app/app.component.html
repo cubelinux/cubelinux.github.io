@@ -1,0 +1,49 @@
+<main class="page-shell">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CubeLinux home">
+      @if (brand.primaryLogoUrl) {
+        <img class="brand-logo" [src]="brand.primaryLogoUrl" alt="CubeLinux" />
+      } @else {
+        <span class="brand-name">CubeLinux</span>
+      }
+    </a>
+    <a class="top-link" href="https://github.com/cubelinux">GitHub <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow"><span class="status-dot"></span> Upcoming Linux distribution · built in the open</p>
+    <h1 id="hero-title">Secure and isolated.<br /><span>In the making.</span></h1>
+    <p class="intro">
+      CubeLinux is an upcoming Linux distribution being developed in public.
+      Today, the project is its GitHub repositories: the system image and desktop
+      tools are taking shape before a first release.
+    </p>
+    <div class="actions">
+      <a class="button button-primary" href="https://github.com/cubelinux">Follow development <span aria-hidden="true">↗</span></a>
+      <a class="button button-secondary" href="https://github.com/cubelinux/cubelinux">Browse the system repository</a>
+    </div>
+  </section>
+
+  <section class="feature-grid" aria-label="What is in development">
+    <article class="feature-card">
+      <span class="card-number">01 / SYSTEM</span>
+      <h2>Fedora bootc image</h2>
+      <p>The base system and KDE desktop are being assembled as an image-based Linux system.</p>
+    </article>
+    <article class="feature-card">
+      <span class="card-number">02 / VIRTUAL SHELL</span>
+      <h2>Isolated workspace</h2>
+      <p>VShell is being developed to provide a persistent Fedora environment from the desktop.</p>
+    </article>
+    <article class="feature-card">
+      <span class="card-number">03 / UPDATES</span>
+      <h2>System updater</h2>
+      <p>A dedicated updater is part of the project, alongside the image and desktop experience.</p>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <span>© {{ year }} CubeLinux Project</span>
+    <span>Early development · No install images published</span>
+  </footer>
+</main>
