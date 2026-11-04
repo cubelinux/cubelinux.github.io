@@ -36,11 +36,29 @@
     </div>
   </section>
 
+  <section class="approach-section" aria-labelledby="approach-title">
+    <div class="approach-copy">
+      <p class="section-kicker">THE APPROACH</p>
+      <h2 id="approach-title">A desktop <span>built as a system</span></h2>
+      <p>Choose a letter or follow the slideshow to see how each part fits into the desktop.</p>
+      <div id="approach-description" class="approach-cycle-copy" role="group" aria-label="How each part contributes">
+        <p [class.is-active]="activeApproach() === 0" [attr.aria-hidden]="activeApproach() !== 0">Fedora provides cubelinux's Linux base and package ecosystem. bootc makes cubelinux a container-driven operating system by building the desktop, system tools, and defaults into one versioned OCI image. Updates stage a new OSTree deployment while your current system keeps running, then switch to it on restart. The previous deployment remains available for rollback.</p>
+        <p [class.is-active]="activeApproach() === 1" [attr.aria-hidden]="activeApproach() !== 1">KDE Plasma provides the desktop, with cubelinux's first-boot setup and familiar desktop tools.</p>
+        <p [class.is-active]="activeApproach() === 2" [attr.aria-hidden]="activeApproach() !== 2">KDE Discover installs Flathub apps as Flatpaks, with sandbox permissions controlling each app's access. cubelinux vshell uses unprivileged LXC for a persistent Fedora workspace with shared folders and Fedora app launchers. Flatpak apps, the Fedora environment, and the bootc system image follow separate update paths.</p>
+      </div>
+    </div>
+    <ul class="approach-list">
+      <li [class.is-active]="activeApproach() === 0"><button class="approach-index" [class.is-active]="activeApproach() === 0" type="button" aria-controls="approach-description" aria-label="Show Fedora bootc description" [attr.aria-pressed]="activeApproach() === 0" (click)="selectApproach(0)">A</button><span><strong>Fedora bootc</strong><small>Image-based system foundation</small></span></li>
+      <li [class.is-active]="activeApproach() === 1"><button class="approach-index approach-index-pink" [class.is-active]="activeApproach() === 1" type="button" aria-controls="approach-description" aria-label="Show KDE Plasma description" [attr.aria-pressed]="activeApproach() === 1" (click)="selectApproach(1)">B</button><span><strong>KDE Plasma</strong><small>Desktop environment and setup flow</small></span></li>
+      <li [class.is-active]="activeApproach() === 2"><button class="approach-index approach-index-peach" [class.is-active]="activeApproach() === 2" type="button" aria-controls="approach-description" aria-label="Show Flatpak apps and cubelinux vshell description" [attr.aria-pressed]="activeApproach() === 2" (click)="selectApproach(2)">C</button><span><strong>Apps &amp; environments</strong><small>Flatpak apps and Fedora LXC workspace</small></span></li>
+    </ul>
+  </section>
+
   <section class="project-section" aria-labelledby="projects-title">
     <div class="section-heading">
       <p class="section-kicker">BUILT IN PUBLIC</p>
-      <h2 id="projects-title">One distro, <span>three repositories</span></h2>
-      <p>cubelinux is taking shape across a system image and two companion desktop projects.</p>
+      <h2 id="projects-title">One distro, <span>one monorepo</span></h2>
+      <p>The system image, cubelinux updater, and cubelinux vshell are developed together in the cubelinux repository.</p>
     </div>
 
     <div class="project-grid">
@@ -48,40 +66,23 @@
         <span class="card-number">01 / SYSTEM</span>
         <h3>Fedora bootc image</h3>
         <p>The main repository builds a customized Fedora 44 bootc image with KDE Plasma and the cubelinux desktop setup.</p>
-        <span class="card-link">Explore the system repo <span aria-hidden="true">↗</span></span>
+        <span class="card-link">View in cubelinux repo <span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="project-card project-updater" href="https://github.com/cubelinux/cubelinux-updater" target="_blank" rel="noreferrer">
+      <a class="project-card project-updater" href="https://github.com/cubelinux/cubelinux/tree/main/cubelinux-updater" target="_blank" rel="noreferrer">
         <span class="card-number">02 / UPDATES</span>
-        <h3>Bootc Updater</h3>
-        <p>A KDE app in development for checking for updates, staging downloads, and applying an update after a confirmed restart.</p>
-        <span class="card-link">Explore the updater repo <span aria-hidden="true">↗</span></span>
+        <h3>cubelinux updater</h3>
+        <p>A KDE app that checks for updates to cubelinux's bootc system image, stages downloads, and applies an update after you confirm a restart.</p>
+        <span class="card-link">View in cubelinux repo <span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="project-card project-vshell" href="https://github.com/cubelinux/cubelinux-vshell" target="_blank" rel="noreferrer">
-        <span class="card-number">03 / VIRTUAL SHELL</span>
-        <h3>VShell</h3>
-        <p>A KDE setup app for a persistent Fedora LXC environment. Its container setup and host integration are still being developed.</p>
-        <span class="card-link">Explore the VShell repo <span aria-hidden="true">↗</span></span>
+      <a class="project-card project-vshell" href="https://github.com/cubelinux/cubelinux/tree/main/cubelinux-vshell" target="_blank" rel="noreferrer">
+        <span class="card-number">03 / VSHELL</span>
+        <h3>cubelinux vshell</h3>
+        <p>A KDE app that sets up a persistent Fedora environment using unprivileged LXC, with shared folders and Fedora app launchers.</p>
+        <span class="card-link">View in cubelinux repo <span aria-hidden="true">↗</span></span>
       </a>
     </div>
-  </section>
-
-  <section class="approach-section" aria-labelledby="approach-title">
-    <div class="approach-copy">
-      <p class="section-kicker">THE APPROACH</p>
-      <h2 id="approach-title">A desktop <span>built as a system</span></h2>
-      <p>
-        cubelinux starts with Fedora bootc, a KDE Plasma desktop, and a system
-        image assembled from a versioned package manifest. The companion
-        projects explore image updates and an isolated Fedora workspace.
-      </p>
-    </div>
-    <ul class="approach-list">
-      <li><span class="approach-index">A</span><span><strong>Fedora bootc</strong><small>Image-based system foundation</small></span></li>
-      <li><span class="approach-index approach-index-pink">B</span><span><strong>KDE Plasma</strong><small>Desktop environment and setup flow</small></span></li>
-      <li><span class="approach-index approach-index-peach">C</span><span><strong>LXC + VShell</strong><small>Persistent, unprivileged Fedora environment</small></span></li>
-    </ul>
   </section>
 
   <section class="status-panel" aria-labelledby="status-title">
