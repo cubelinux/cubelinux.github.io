@@ -2,7 +2,7 @@
 
 The Angular site for the upcoming cubelinux distribution, published at
 [cubelinux.github.io](https://cubelinux.github.io/). The project is in early
-development; it does not publish an ISO or installation image yet.
+development; no official release has been announced.
 
 The site uses the cubelinux logo palette, opens in light mode, and includes a
 light/dark theme switch.

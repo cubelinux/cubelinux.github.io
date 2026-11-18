@@ -167,6 +167,8 @@ h1 span { color: var(--brand-blue); }
 .project-card p { grid-column: 2; grid-row: 2; max-width: 610px; margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .card-link { grid-column: 3; grid-row: 1 / span 2; display: inline-flex; align-items: center; gap: 7px; color: color-mix(in srgb, var(--card-accent) 80%, #102d3f); font-size: 10px; font-weight: 750; white-space: nowrap; }
 :root[data-theme='dark'] .card-link { color: color-mix(in srgb, var(--card-accent) 82%, white); }
+.card-links { grid-column: 3; grid-row: 1 / span 2; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.card-links .card-link { grid-column: auto; grid-row: auto; }
 
 .approach-section {
   display: grid;
@@ -180,7 +182,7 @@ h1 span { color: var(--brand-blue); }
 .approach-copy h2 { max-width: 350px; }
 .approach-copy > p:not(.section-kicker) { max-width: 440px; margin: 15px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
 .approach-list { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 0; list-style: none; }
-.approach-list::before { position: absolute; top: 17px; right: 16.5%; left: 16.5%; height: 1px; background: linear-gradient(90deg, var(--brand-blue), var(--brand-pink), var(--brand-peach)); opacity: .75; content: ''; }
+.approach-list::before { position: absolute; top: 17px; right: calc(33.333% - 29px); left: 29px; height: 1px; background: linear-gradient(90deg, var(--brand-blue), var(--brand-pink), var(--brand-peach)); opacity: .75; content: ''; }
 .approach-list li { position: relative; min-height: 90px; padding: 3px 14px 4px; border-left: 1px solid var(--line); }
 .approach-index { position: relative; z-index: 1; display: grid; width: 30px; height: 30px; margin-bottom: 14px; padding: 0; place-items: center; border: 1px solid color-mix(in srgb, var(--brand-blue) 55%, var(--line)); border-radius: 50%; color: #1875a4; background: var(--surface); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10px; font-weight: 800; cursor: pointer; transition: transform .4s ease, box-shadow .4s ease; }
 .approach-index-pink { border-color: color-mix(in srgb, var(--brand-pink) 65%, var(--line)); color: #bd4f7a; }
@@ -221,6 +223,7 @@ h1 span { color: var(--brand-blue); }
   .project-card h3 { grid-column: 2; grid-row: 1; }
   .project-card p { grid-column: 2; grid-row: 2; }
   .card-link { grid-column: 2; grid-row: 3; margin-top: 12px; }
+  .card-links { grid-column: 2; grid-row: 3; margin-top: 12px; flex-direction: row; flex-wrap: wrap; }
   .approach-section { grid-template-columns: 1fr; gap: 25px; margin-bottom: 35px; }
   .approach-list { grid-template-columns: repeat(2, 1fr); }
   .approach-list::before { display: none; }
@@ -241,10 +244,11 @@ h1 span { color: var(--brand-blue); }
   .project-card h3 { grid-column: 1 / -1; grid-row: 2; }
   .project-card p { grid-column: 1 / -1; grid-row: 3; }
   .card-link { grid-column: 1 / -1; grid-row: 4; margin-top: 5px; }
+  .card-links { grid-column: 1 / -1; grid-row: 4; margin-top: 5px; flex-direction: column; }
   .approach-section { padding: 30px 0 35px; }
   .approach-list { grid-template-columns: 1fr; }
   .approach-list::before { display: block; top: 17px; right: auto; bottom: 17px; left: 12px; width: 1px; height: auto; background: linear-gradient(180deg, var(--brand-blue), var(--brand-pink), var(--brand-peach)); }
-  .approach-list li { min-height: auto; padding: 12px 0; border-left: 0; border-top: 1px solid var(--soft-line); }
+  .approach-list li { min-height: auto; padding: 12px 0; border-left: 0; border-top: 1px solid var(--line); }
   .approach-index { display: inline-grid; width: 25px; height: 25px; margin: 0 8px 0 0; }
   .approach-list li > span:nth-child(2) { display: inline-block; vertical-align: middle; }
   .status-panel { grid-template-columns: 1fr; gap: 14px; margin-bottom: 42px; padding: 18px; }

@@ -24,7 +24,7 @@
 
   <section class="hero" aria-labelledby="hero-title">
     <p class="eyebrow"><span class="status-dot"></span> Upcoming Linux distribution · built in the open</p>
-    <h1 id="hero-title">Secure and isolated.<br /><span>In the making.</span></h1>
+    <h1 id="hero-title">A Linux desktop.<br /><span>In the making.</span></h1>
     <p class="intro">
       cubelinux is an upcoming Linux distribution being developed in public.
       Today, the project is its GitHub repositories: the system image and desktop
@@ -40,32 +40,31 @@
     <div class="approach-copy">
       <p class="section-kicker">THE APPROACH</p>
       <h2 id="approach-title">A desktop <span>built as a system</span></h2>
-      <p>Choose a letter or follow the slideshow to see how each part fits into the desktop.</p>
       <div id="approach-description" class="approach-cycle-copy" role="group" aria-label="How each part contributes">
-        <p [class.is-active]="activeApproach() === 0" [attr.aria-hidden]="activeApproach() !== 0">Fedora provides cubelinux's Linux base and package ecosystem. bootc makes cubelinux a container-driven operating system by building the desktop, system tools, and defaults into one versioned OCI image. Updates stage a new OSTree deployment while your current system keeps running, then switch to it on restart. The previous deployment remains available for rollback.</p>
+        <p [class.is-active]="activeApproach() === 0" [attr.aria-hidden]="activeApproach() !== 0">cubelinux uses Fedora as its Linux base and package ecosystem. bootc builds the desktop, system tools, and defaults into one versioned OCI image. Updates stage a new OSTree deployment while your current system keeps running, then switch to it on restart. The previous deployment remains available for rollback.</p>
         <p [class.is-active]="activeApproach() === 1" [attr.aria-hidden]="activeApproach() !== 1">KDE Plasma provides the desktop, with cubelinux's first-boot setup and familiar desktop tools.</p>
-        <p [class.is-active]="activeApproach() === 2" [attr.aria-hidden]="activeApproach() !== 2">KDE Discover installs Flathub apps as Flatpaks, with sandbox permissions controlling each app's access. cubelinux vshell uses unprivileged LXC for a persistent Fedora workspace with shared folders and Fedora app launchers. Flatpak apps, the Fedora environment, and the bootc system image follow separate update paths.</p>
+        <p [class.is-active]="activeApproach() === 2" [attr.aria-hidden]="activeApproach() !== 2">VShell uses a separate Linux runtime with KDE Discover and Flatpak for installing apps. It can surface graphical apps in Plasma and share selected folders. The bootc host, VShell runtime, and Flatpak apps each follow their own update path.</p>
       </div>
     </div>
     <ul class="approach-list">
-      <li [class.is-active]="activeApproach() === 0"><button class="approach-index" [class.is-active]="activeApproach() === 0" type="button" aria-controls="approach-description" aria-label="Show Fedora bootc description" [attr.aria-pressed]="activeApproach() === 0" (click)="selectApproach(0)">A</button><span><strong>Fedora bootc</strong><small>Image-based system foundation</small></span></li>
+      <li [class.is-active]="activeApproach() === 0"><button class="approach-index" [class.is-active]="activeApproach() === 0" type="button" aria-controls="approach-description" aria-label="Show bootc system description" [attr.aria-pressed]="activeApproach() === 0" (click)="selectApproach(0)">A</button><span><strong>bootc system</strong><small>Image-based system foundation</small></span></li>
       <li [class.is-active]="activeApproach() === 1"><button class="approach-index approach-index-pink" [class.is-active]="activeApproach() === 1" type="button" aria-controls="approach-description" aria-label="Show KDE Plasma description" [attr.aria-pressed]="activeApproach() === 1" (click)="selectApproach(1)">B</button><span><strong>KDE Plasma</strong><small>Desktop environment and setup flow</small></span></li>
-      <li [class.is-active]="activeApproach() === 2"><button class="approach-index approach-index-peach" [class.is-active]="activeApproach() === 2" type="button" aria-controls="approach-description" aria-label="Show Flatpak apps and cubelinux vshell description" [attr.aria-pressed]="activeApproach() === 2" (click)="selectApproach(2)">C</button><span><strong>Apps &amp; environments</strong><small>Flatpak apps and Fedora LXC workspace</small></span></li>
+      <li [class.is-active]="activeApproach() === 2"><button class="approach-index approach-index-peach" [class.is-active]="activeApproach() === 2" type="button" aria-controls="approach-description" aria-label="Show VShell runtime and apps description" [attr.aria-pressed]="activeApproach() === 2" (click)="selectApproach(2)">C</button><span><strong>Apps &amp; environments</strong><small>VShell runtime and apps</small></span></li>
     </ul>
   </section>
 
   <section class="project-section" aria-labelledby="projects-title">
     <div class="section-heading">
       <p class="section-kicker">BUILT IN PUBLIC</p>
-      <h2 id="projects-title">One distro, <span>one monorepo</span></h2>
-      <p>The system image, cubelinux updater, and cubelinux vshell are developed together in the cubelinux repository.</p>
+      <h2 id="projects-title">A desktop, <span>several projects</span></h2>
+      <p>The system image, updater, and VShell app are developed in the cubelinux repository. The VShell Runtime has its own repository.</p>
     </div>
 
     <div class="project-grid">
       <a class="project-card project-system" href="https://github.com/cubelinux/cubelinux" target="_blank" rel="noreferrer">
         <span class="card-number">01 / SYSTEM</span>
-        <h3>Fedora bootc image</h3>
-        <p>The main repository builds a customized Fedora 44 bootc image with KDE Plasma and the cubelinux desktop setup.</p>
+        <h3>bootc system image</h3>
+        <p>The main repository builds cubelinux's versioned system image with KDE Plasma and the desktop setup.</p>
         <span class="card-link">View in cubelinux repo <span aria-hidden="true">↗</span></span>
       </a>
 
@@ -76,12 +75,15 @@
         <span class="card-link">View in cubelinux repo <span aria-hidden="true">↗</span></span>
       </a>
 
-      <a class="project-card project-vshell" href="https://github.com/cubelinux/cubelinux/tree/main/cubelinux-vshell" target="_blank" rel="noreferrer">
+      <article class="project-card project-vshell">
         <span class="card-number">03 / VSHELL</span>
-        <h3>cubelinux vshell</h3>
-        <p>A KDE app that sets up a persistent Fedora environment using unprivileged LXC, with shared folders and Fedora app launchers.</p>
-        <span class="card-link">View in cubelinux repo <span aria-hidden="true">↗</span></span>
-      </a>
+        <h3>cubelinux VShell</h3>
+        <p>A KDE app that sets up a persistent Linux environment using unprivileged LXC, with shared folders and graphical app launchers. Its separate cubelinux Runtime includes KDE Discover and Flatpak.</p>
+        <div class="card-links">
+          <a class="card-link" href="https://github.com/cubelinux/cubelinux/tree/main/cubelinux-vshell" target="_blank" rel="noreferrer">VShell app source <span aria-hidden="true">↗</span></a>
+          <a class="card-link" href="https://github.com/cubelinux/cubelinux-vshell-runtime" target="_blank" rel="noreferrer">Runtime source <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -89,13 +91,13 @@
     <div>
       <p class="section-kicker">CURRENT STAGE</p>
       <h2 id="status-title">Early development</h2>
-      <p>There is no ISO or install image to download yet. For now, follow the source repositories as the system and its tools come together.</p>
+      <p>The system and its tools are still under active development. Follow the source repositories for project updates and official release announcements.</p>
     </div>
     <a class="button button-secondary" href="https://github.com/cubelinux">Visit cubelinux on GitHub <span aria-hidden="true">↗</span></a>
   </section>
 
   <footer class="footer">
     <span>© {{ year }} cubelinux Project</span>
-    <span>Early development · No install images published</span>
+    <span>Early development · No official release announced</span>
   </footer>
 </main>
